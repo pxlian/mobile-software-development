@@ -22,10 +22,10 @@
 
 | Stage | Content | Status |
 | :---: | --- | :---: |
-| 01 | 开发环境与小程序基础 | In progress |
-| 02 | 课程实验归档 | [EXP1](#exp1) · [EXP2](#exp2) · [EXP3](#exp3) · [EXP4](#exp4) · [EXP6](#exp6) 已完成 |
-| 03 | 个人项目实践 | [Project](#project) V1 框架完成 |
-| 04 | 课程总结与作品展示 | Coming soon |
+| 01 | 开发环境与小程序基础 | 已归档 |
+| 02 | 课程实验归档 | [EXP1](#exp1) · [EXP2](#exp2) · [EXP3](#exp3) · [EXP4](#exp4) · [EXP6](#exp6) 作品已归档；Exp5 保留基础模板 |
+| 03 | 个人项目实践 | [ongoing_ · 未完](#project) 源码与文档已整理，云端真机验收待完成 |
+| 04 | 课程总结与作品展示 | [6 分钟展示内容](./project-my%20summer%20holiday/个人展示内容包-6分钟终版.md) 已保存 |
 
 ## Experiments
 
@@ -125,18 +125,20 @@
 
 </div>
 
-### Project　ongoing_ · 未完：生活片段记录框架 <a id="project"></a>
+### Project　ongoing_ · 未完：生活记录小程序 <a id="project"></a>
 
-一个围绕 `Chapter → Moment → Review` 组织生活片段的个人项目：当下页聚焦当前章节与快速记录，回望页以 Gallery 归档正在发生 / 已成章 / 已归档的片段，章节详情以时间线、足迹与 Goal 进度呈现叙事。当前版本为可直接运行的 V1 交互骨架，全部数据走本地缓存，数据层与方法边界已为接入云开发或自有 API 预留。
+用 Moment 留下此刻，用 Chapter 整理一段生活。项目已包含原生小程序页面、本地持久化和微信云开发协作代码；首次使用展示空状态。共同记录通过复制邀请文字、在小程序内粘贴加入，参与者各自保存和编辑视角。云函数部署与真实双账号验收仍需在微信环境完成。
 
 | Focus | Implementation |
 | --- | --- |
-| 页面 | 11 个页面：启动 / 引导 / 当下 / 回望 / 章节详情与编辑 / Moment 编辑与详情 / 回顾 / 搜索 / 个人偏好 |
-| 数据 | `services/store.js` 唯一数据访问层 + `data/demo.js` 课程演示数据 |
-| 结构 | `Chapter 1 ─ N Moment` · 状态机 `ONGOING / COMPLETED / ARCHIVED` |
-| 交互 | 图片 / 文字 / 地点 / 心情 / 标签 / 语音 Moment · 全文搜索 · 收藏与微信分享 |
+| 导航 | 当下 / 生活 / 我的；Chapter、Moment、回望、搜索等二级页面 |
+| 记录 | 文字、多图、语音、日期、地点、标签与草稿；Chapter 日历、回望海报和 Memory Echo |
+| 协作 | Chapter 与单条 Moment 邀请、独立视角和评论；云函数基于真实 OPENID 检查身份与权限 |
+| 数据 | `services/store.js` 管理本地持久化；`services/collaboration.js` 负责待同步队列与云端协作 |
 
-**核心体验：** `数据边界 → 章节时间线 → 片段记录 → 回望叙事 → 演示闭环`
+**核心体验：** `低门槛记录 → 可选章节整理 → 多人独立视角 → 时间回望`
+
+完整运行说明、代码结构、测试结果与部署边界见 [项目 README](./project-my%20summer%20holiday/README.md)。
 
 <div align="right">
 
@@ -152,23 +154,24 @@
 ├── Exp2/                        # 实验 2：个人名片小程序
 ├── Exp3/                        # 实验 3：高校新闻网小程序
 ├── Exp4/                        # 实验 4：推箱子游戏小程序
+├── Exp5/                        # 实验 5：基础模板
 ├── Exp6/cloudPhoto/             # 实验 6：图片分享社区（云开发）
 ├── project-my summer holiday/   # 个人项目：ongoing_ · 未完
 ├── README.md                    # 课程总览
 └── .gitignore
 ```
 
-后续实验将按照相同结构加入仓库，并在上方的课程地图中更新进度。
+项目目录中的 `tests/`、`cloudfunctions/` 与各项交接文档同样保存在仓库中。
 
 ## Notes
 
 - 开发工具：微信开发者工具 · DevEco Studio
 - 当前项目：原生微信小程序
 - 实验记录：[EXP1 博客](https://blog.csdn.net/ppxl01/article/details/164024454) · [EXP2 博客](https://blog.csdn.net/ppxl01/article/details/164054481) · [EXP3 博客](https://blog.csdn.net/ppxl01/article/details/164219398) · [EXP4 博客](https://blog.csdn.net/ppxl01/article/details/164256841) · [实验5 博客](https://blog.csdn.net/ppxl01/article/details/164485373) · [EXP6 博客](https://blog.csdn.net/ppxl01/article/details/164754460)
-- 个人项目：[ongoing_ · 未完](./project-my%20summer%20holiday/)（V1 交互框架，数据层为云开发预留边界）
+- 个人项目：[ongoing_ · 未完](./project-my%20summer%20holiday/)（本地记录与云协作源码；云端部署和双账号真机验收见项目 README）
 
 ---
 
 <div align="center">
-  <sub>Learning by building · Updating throughout the course</sub>
+  <sub>Learning by building · Mobile Software Development</sub>
 </div>
